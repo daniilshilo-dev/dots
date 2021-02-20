@@ -1,0 +1,54 @@
+{
+	//! Модификации UI
+	"workbench.iconTheme": "vscode-icons", // VSCode - иконки
+	"workbench.colorTheme": "Tokyo Night Storm", // Dracula - основная тема
+	"workbench.preferredDarkColorTheme": "Monokai",
+	"window.zoomLevel": 0, // Стандартный масштаб для всех мониторов
+	"editor.fontLigatures": true, // Дополненные иероглифы (их комбинации в шрифте)
+	"editor.fontFamily": "Ubuntu Mono, Cascadia Mono, JetBrains Mono, Fira Code, Consolas", // Шрифты
+	"editor.fontSize": 16,
+	"editor.minimap.maxColumn": 100, // Рендерить 100 символов на миникарте
+	"editor.minimap.renderCharacters": false, // **Не** рендерить символы на миникарте
+	"screencastMode.fontSize": 37, // Размер шрифта в режиме презентации
+	"editor.renderWhitespace": "boundary", // Рендерит пробелы и табы
+	//! Курсор
+	"editor.cursorBlinking": "smooth",
+	"editor.cursorSmoothCaretAnimation": true,
+	//! Оптимизация полноэкранного режима
+	"zenMode.fullScreen": true,
+	"window.restoreFullscreen": true,
+	"zenMode.restore": true,
+	//! Форматирование
+	"editor.defaultFormatter": "esbenp.prettier-vscode",
+	"editor.formatOnPaste": true,
+	//! Конфиденциальность
+	"extensions.ignoreRecommendations": true,
+	"telemetry.enableCrashReporter": false, // Отключение телеметрии
+	//!? Extras
+	"workbench.tips.enabled": false, // Подсказки отключены
+	"workbench.tree.indent": 16, // 16 px - отступ в иерархии дерева файлов
+	"workbench.settings.editor": "json", // Основные настройки открывать в JSON
+	"search.smartCase": true, // Умный поиск
+	"terminal.integrated.shell.windows": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+	"explorer.confirmDragAndDrop": false,
+	"explorer.confirmDelete": false,
+
+	//! Extensions
+	"emmet.triggerExpansionOnTab": true, // Emmet on tab
+	"eslint.format.enable": true, // Use ESLint formatter
+	"vsicons.dontShowNewVersionMessage": true, // Игнорить обновления VSCodeIcons
+
+	// File Specific options
+	"[cpp]": {
+		"editor.defaultFormatter": "ms-vscode.cpptools"
+	},
+	"[javascript]": {
+		"editor.formatOnSave": true,
+		"editor.formatOnPaste": true,
+		"editor.autoIndent": "advanced",
+	},
+
+
+	"git.ignoreMissingGitWarning": true,
+	"editor.linkedEditing": true
+}
