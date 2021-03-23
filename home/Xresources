@@ -1,0 +1,51 @@
+XTerm.termName: xterm-256color
+! Fix locale (force utf-8)
+XTerm.vt100.locale: false
+XTerm.vt100.utf8: true
+! Fix Alt
+XTerm.vt100.metaSendsEscape: true
+! Fix backspace
+XTerm.vt100.backarrowKey: false
+XTerm.ttyModes: erase ^?
+! History
+XTerm.vt100.saveLines: 4096
+XTerm.vt100.scrollBar: false
+XTerm.vt100.scrollbar.width: 0
+! Font
+XTerm.vt100.faceName: Source Code Pro:size=10:antialias=true
+! Clipboard copy from mouse selection
+XTerm*selectToClipboard: true
+! Bell
+XTerm*visualbell: true
+XTerm*bellIsUrgent: true
+
+
+! special
+XTerm.foreground:   #c5c8c6
+XTerm.background:   #1d1f21
+XTerm.cursorColor:  #c5c8c6
+
+! black
+XTerm.color0:       #1d1f21
+XTerm.color8:       #969896
+! red
+XTerm.color1:       #cc6666
+XTerm.color9:       #cc6666
+! green
+XTerm.color2:       #b5bd68
+XTerm.color10:      #b5bd68
+! yellow
+XTerm.color3:       #f0c674
+XTerm.color11:      #f0c674
+! blue
+XTerm.color4:       #81a2be
+XTerm.color12:      #81a2be
+! magenta
+XTerm.color5:       #b294bb
+XTerm.color13:      #b294bb
+! cyan
+XTerm.color6:       #8abeb7
+XTerm.color14:      #8abeb7
+! white
+XTerm.color7:       #c5c8c6
+XTerm.color15:      #ffffff
