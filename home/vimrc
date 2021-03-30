@@ -1,0 +1,126 @@
+""" Plugins """
+call plug#begin('~/.vim/plugged')
+Plug 'chriskempson/base16-vim'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'vim-airline/vim-airline'
+Plug 'joshdick/onedark.vim'
+Plug 'mhinz/vim-startify'
+Plug 'Yggdroot/indentLine'
+Plug 'mhinz/vim-signify'
+Plug 'luochen1990/rainbow'
+Plug 'easymotion/vim-easymotion'
+Plug 'jiangmiao/auto-pairs'
+Plug 'preservim/tagbar'
+call plug#end()
+so $HOME/.vim/vimrc_plugins
+let g:coc_global_extensions = ['coc-json', 'coc-css', 'coc-html', 'coc-ultisnips', 'coc-sh', 'coc-snippets', 'coc-eslint', 'coc-tabnine', 'coc-prettier']
+
+
+""" Basic things """
+filetype plugin on
+filetype indent on
+set history=500
+set encoding=utf8
+set ffs=unix,dos,mac
+set noswapfile
+
+" Autoread
+set autoread
+au FocusGained,BufEnter * checktime
+
+" Colorscheme
+
+"Use 24-bit (true-color) mode in Vim/Neovim when outside tmux.
+if (empty($TMUX))
+  if (has("nvim"))
+    let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+  endif
+  if (has("termguicolors"))
+    set termguicolors
+  endif
+  if (&term == "rxvt-unicode-256color")
+      set notermguicolors
+  endif
+endif
+
+syntax enable
+colorscheme base16-tomorrow-night
+if $COLORTERM == 'gnome-terminal'
+    set t_Co=256
+endif
+if has("gui_running")
+    set guioptions-=T
+    set guioptions-=e
+    set t_Co=256
+    set guitablabel=%M\ %t
+endif
+
+" Leader Key
+let mapleader = ";"
+set so=7
+
+" Language
+let $LANG='en' 
+set langmenu=en
+set langmap=ФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯЖ;ABCDEFGHIJKLMNOPQRSTUVWXYZ:,фисвуапршолдьтщзйкыегмцчня;abcdefghijklmnopqrstuvwxyz
+
+" CMD
+set cmdheight=1
+set backspace=eol,start,indent
+set whichwrap+=<,>,h,l
+set number
+set numberwidth=3
+
+" Wildmenu
+set wildmenu
+set wildignore=*.o,*~,*.pyc
+if has("win16") || has("win32")
+    set wildignore+=.git\*,.hg\*,.svn\*
+else
+    set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/.DS_Store
+endif
+
+" Tabs
+set expandtab
+set smarttab
+set shiftwidth=4
+set tabstop=4
+set tw=500
+set ai
+set si
+set wrap
+
+" Search
+set ignorecase
+set smartcase
+set hlsearch
+set incsearch 
+set lazyredraw 
+set magic
+set showmatch 
+set mat=2
+
+" Statusline
+" set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l\ \ Column:\ %c
+
+
+""" Hotkeys """
+" Moving around panes
+map <C-j> <C-W>j
+map <C-k> <C-W>k
+map <C-h> <C-W>h
+map <C-l> <C-W>l
+
+" Tabs
+map <leader>tn :tabnew<cr>
+map <leader>te :tabedit 
+map <leader>to :tabonly<cr>
+map <leader>tc :tabclose<cr>
+map <leader>tm :tabmove<cr>
+map <leader>tt :tabnext<cr>
+
+" Plugin's hotkeys
+nnoremap <leader>n :NERDTreeToggle<CR>
+nnoremap <leader>m :TagbarOpenAutoClose<CR>
