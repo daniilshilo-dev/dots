@@ -8,7 +8,7 @@ fi
 # User specific environment
 if ! [[ "$PATH" =~ "$HOME/.local/bin:$HOME/bin:" ]]
 then
-    PATH="$HOME/.local/bin:$HOME/bin:$PATH"
+	PATH="$HOME/.local/bin:$HOME/bin:$PATH"
 fi
 export PATH
 
@@ -16,4 +16,36 @@ export PATH
 # export SYSTEMD_PAGER=
 
 # User specific aliases and functions
-alias devstart=""
+function devstart() {
+	if [[ $(tmux ls | grep devstart) ]];then
+		tmux attach -t devstart
+	else
+		program1="vim"
+		program2="htop"
+		program3="nnn"
+		[[ $(which $program1) ]] && echo Checkng $program1... OK! || $(echo Checking $program1... Fail! && sudo dnf install $program1)
+		[[ $(which $program2) ]] && echo Checkng $program2... OK! || $(echo Checking $program2... Fail! && sudo dnf install $program2)
+		[[ $(which $program3) ]] && echo Checkng $program3... OK! || $(echo Checking $program3... Fail! && sudo dnf install $program3)
+		tmux new-session -s devstart $program1\; split-window -v $program3\; split-window -h $program2\;
+	fi
+}
+
+# Start vim with sudo if user don't have permissions
+function sudovim() {
+    if [[ -e $1 ]] && [[ $(stat $1 | grep "root") ]]; then
+        EDITOR=vim;
+        sudoedit;
+    else
+        vim $1;
+    fi
+}
+
+# Aliases
+alias la="ls -la"
+alias "..."="cd ../.."
+alias vim="sudovim"
+
+export -f devstart sudovim
+export EDITOR=vim
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash

@@ -13,6 +13,7 @@ Plug 'luochen1990/rainbow'
 Plug 'easymotion/vim-easymotion'
 Plug 'jiangmiao/auto-pairs'
 Plug 'preservim/tagbar'
+Plug 'aklt/plantuml-syntax'
 call plug#end()
 so $HOME/.vim/vimrc_plugins
 let g:coc_global_extensions = ['coc-json', 'coc-css', 'coc-html', 'coc-ultisnips', 'coc-sh', 'coc-snippets', 'coc-eslint', 'coc-tabnine', 'coc-prettier']
@@ -69,7 +70,7 @@ set langmap=ФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯЖ;ABCDEFGHIJKLM
 " CMD
 set cmdheight=1
 set backspace=eol,start,indent
-set whichwrap+=<,>,h,l
+set whichwrap+=<,>
 set number
 set numberwidth=3
 
